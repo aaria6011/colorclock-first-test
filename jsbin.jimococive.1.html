@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2021 by anonymous (http://jsbin.com/jimococive/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+  <title>Colorclock</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="színóra.css">
+<style id="jsbin-css">
+* { margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+}
+
+#clock {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  font-family: 'Mulish', sans-serif;
+  font-size: 68px;
+  margin-top: -34px;
+}
+
+
+</style>
+</head>
+<body>
+  <div id="clock">12:13:14</div>
+<script id="jsbin-javascript">
+function colorClock(){
+  var date = new Date();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+  // ha
+// a 'seconds' változó kisebb, mint 10
+// legyen előtte a szöveggé konvertáláskor egy nulla
+  
+  if (hours <= 9) {
+    hours = '0' + hours;
+  }
+  if (minutes <= 9) {
+    minutes = '0' + minutes;
+  }
+  if  (seconds <= 9) {
+    seconds = '0' + seconds;
+  }  
+  var clockFace = hours + ':' + minutes + ':' + seconds;
+
+  document.getElementById('clock').innerHTML = clockFace;
+  
+  setTimeout(function() {
+  colorClock();
+  }, 1000);
+  
+  var hexColor = '#' + hours + minutes + seconds;
+  
+  document.body.style.background = hexColor;
+
+}
+colorClock(); 
+  
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
+</html>
